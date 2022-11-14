@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.maps-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 24px;
+}
+
+#map {
+    height: 400px;
+    width: 700px;
+}
+
+@media screen and (max-width: 1447px){
+    #puzzle-board {
+        margin: 12px 0 0 0;
+    }
+}
+
+@media screen and (min-width: 1448px){
+    #puzzle-board {
+        margin: 0 0 0 12px;
+    }
+}
+
+.input-container {
+    display: flex;
+    margin: 12px;
+}
+
+.input-container > div {
+    display: flex;
+    flex-direction: column;
+    margin: 4px 2px;
+}
+
+.input-container > div > label, .input-container > div > div{
+    margin: 4px 2px;
+}
+
+.button-container > button {
+    cursor: pointer;
+    margin: 5px 12px;
+    padding: 3px;
+}
+
+#puzzle-pieces {
+    width: 83%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.addBorder {
+    border: #000000 solid 1px;
+}
+
+#puzzle-pieces > img{
+    margin: 10px;
+}
+
+.game-on{
+    border: #000000 solid 1px;
+    margin: 0;
+    padding: 0;
+}
+
+#puzzle-board{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#puzzle-board > div, #puzzle-board > div > img {
+    margin: 0;
+    padding: 0;
+}

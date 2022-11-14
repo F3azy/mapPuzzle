@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title>
+        Map puzzle
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+        integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+
+    <script src="js/leaflet-image.js"></script>
+</head>
+
+<body>
+
+    <div class="maps-container">
+        <div id="map"></div>
+        <div id="puzzle-board"></div>
+    </div>
+
+    <div class="input-container">
+        <div>
+            <label class="myLabel" for="latitude">Szerokość:</label>
+            <label class="myLabel" for="longitude">Długość:</label>
+        </div>
+
+        <div>
+            <div id="latitude">51.505</div>
+            <div id="longitude">-0.09</div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button id="myLocation">My Location</button>
+        <button id="startPuzzle">Start puzzle game</button>
+    </div>
+
+    <div id="puzzle-pieces"></div>
+
+    <script src="js/puzzle.js"></script>
+
+</body>
+
+</html>
