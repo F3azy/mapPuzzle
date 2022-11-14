@@ -260,7 +260,7 @@ myLocation.addEventListener("click", () => {
 startGame.addEventListener("click", () => {
     leafletImage(map, getImageUrl);
     setTimeout(() => {
-        const puzzleGame = new Puzzle(puzzlePiecesBox, imgToPlay, puzzleBoard, 3);
+        const puzzleGame = new Puzzle(puzzlePiecesBox, imgToPlay, puzzleBoard, 4);
         puzzleGame.startGame();
     }, "2200");
 });
