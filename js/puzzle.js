@@ -41,15 +41,21 @@ class Puzzle {
 
                 ctx.drawImage(Puzzle.#puzzleImage, j*width, i*height, width, height, 0, 0, width, height);
 
-                const image = document.createElement("img");
-                image.id = "img"+index;
-                image.width = width;
-                image.height = height;
-                image.src = canvas.toDataURL();
-                image.draggable = true;
-                image.addEventListener("dragstart", Puzzle.#puzzlePieceDrag);
+                canvas.id = "img"+index;;
+                canvas.draggable = true;
+                canvas.addEventListener("dragstart", Puzzle.#puzzlePieceDrag);
 
-                this.#puzzlePiecesArray.push(image);
+                this.#puzzlePiecesArray.push(canvas);
+
+                // const image = document.createElement("img");
+                // image.id = "img"+index;
+                // image.width = width;
+                // image.height = height;
+                // image.src = canvas.toDataURL();
+                // image.draggable = true;
+                // image.addEventListener("dragstart", Puzzle.#puzzlePieceDrag);
+
+                // this.#puzzlePiecesArray.push(image);
 
                 index++;
             }
@@ -118,7 +124,7 @@ class Puzzle {
     }
 
     static #disableDrag() {
-        const temp = Puzzle.#puzzleBoard.querySelectorAll("img");
+        const temp = Puzzle.#puzzleBoard.querySelectorAll("canvas");
 
         for (let i = 0; i < temp.length; i++) {
             temp[i].draggable = false;
@@ -137,7 +143,7 @@ class Puzzle {
     }
 
     static #validation() {
-        const temp = Puzzle.#puzzleBoard.querySelectorAll("img");
+        const temp = Puzzle.#puzzleBoard.querySelectorAll("canvas");
         let count = 0;
 
         for (let i = 0; i < temp.length; i++) {
@@ -155,7 +161,7 @@ class Puzzle {
     }
 
     static #checkIfPiecesBoxEmpty() {
-        return (!Puzzle.#puzzlePiecesBox.querySelector("img") ? true : false);
+        return (!Puzzle.#puzzlePiecesBox.querySelector("canvas") ? true : false);
     }
 
     static #puzzlePieceDrag(ev) {
@@ -169,7 +175,7 @@ class Puzzle {
     static #puzzlePieceDrop(ev) {
         ev.preventDefault();
         const data = ev.dataTransfer.getData("text");
-        if ( ev.target.nodeName !== "IMG" ) {
+        if ( ev.target.nodeName !== "CANVAS" ) {
             ev.target.appendChild(document.getElementById(data));
         }
 
