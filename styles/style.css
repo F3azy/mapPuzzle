@@ -66,7 +66,7 @@ body {
     border: #000000 solid 1px;
 }
 
-#puzzle-pieces > img{
+#puzzle-pieces > canvas{
     margin: 10px;
 }
 
@@ -83,7 +83,7 @@ body {
     justify-content: center;
 }
 
-#puzzle-board > div, #puzzle-board > div > img {
+#puzzle-board > div, #puzzle-board > div > canvas {
     margin: 0;
     padding: 0;
 }
