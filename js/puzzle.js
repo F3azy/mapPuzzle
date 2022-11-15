@@ -2,7 +2,7 @@ class Puzzle {
     static #puzzlePiecesBox;
     static #puzzleBoard;
     static #piecesAmount;
-    #puzzleImage;
+    static #puzzleImage;
     #imageWidth;
     #imageHeight;
     #puzzlePiecesArray;
@@ -11,9 +11,9 @@ class Puzzle {
         Puzzle.#puzzlePiecesBox = puzzlePiecesBox;
         Puzzle.#puzzleBoard = puzzleBoard;
         Puzzle.#piecesAmount = amount;
-        this.#puzzleImage = imgToPlay;
-        this.#imageWidth = this.#puzzleImage.width;
-        this.#imageHeight = this.#puzzleImage.height;
+        Puzzle.#puzzleImage = imgToPlay;
+        this.#imageWidth = Puzzle.#puzzleImage.width;
+        this.#imageHeight = Puzzle.#puzzleImage.height;
         this.#puzzlePiecesArray = new Array();
     }
 
@@ -39,7 +39,7 @@ class Puzzle {
                 canvas.height = height;
                 const ctx = canvas.getContext("2d");
 
-                ctx.drawImage(this.#puzzleImage, j*width, i*height, width, height, 0, 0, width, height);
+                ctx.drawImage(Puzzle.#puzzleImage, j*width, i*height, width, height, 0, 0, width, height);
 
                 const image = document.createElement("img");
                 image.id = "img"+index;
@@ -106,6 +106,11 @@ class Puzzle {
         }
     }
 
+    static #showImage() {
+        Puzzle.#puzzleBoard.innerHTML = "";
+        Puzzle.#puzzleBoard.appendChild(this.#puzzleImage);
+    }
+
     static #informAboutWin() {
         if (Notification.permission !== "denied") {
             let notification = new Notification('Congratulations', { body: "You have completed the puzzle!"});
@@ -145,6 +150,7 @@ class Puzzle {
             Puzzle.#disableDrag();
             Puzzle.#informAboutWin();
             Puzzle.#deleteBorders();
+            Puzzle.#showImage();
         }
     }
 
